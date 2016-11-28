@@ -6,7 +6,7 @@
 #GET     /                                       Application.index
 # TODO: / should redirect to /products
 
-GET     /products                               ProductController.listAllProducts
+GET     /products                               ProductController.index
 GET     /products/new                           ProductController.newProduct
 POST    /products                               ProductController.createProduct
 GET     /products/{<[0-9]+>id}/edit             ProductController.editProduct

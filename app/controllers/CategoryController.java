@@ -19,8 +19,11 @@ public class CategoryController extends Controller {
         render(category);
     }
 
-    public static void create() {
-        render();
+    // handles POST
+    public static void create(final String name) {
+        Category.create(name);
+        // TODO: redirect
+        index();
     }
 
     public static void edit(final Long id) {

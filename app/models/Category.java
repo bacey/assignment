@@ -16,14 +16,6 @@ public class Category extends Model {
     @OneToMany(mappedBy="category") // , cascade=CascadeType.ALL)
     public List<Product> products = new ArrayList<>();
 
-    public Category() {
-        // for CategoryController#newCategory
-    }
-
-    public Category(final String name) {
-        this.name = name;
-    }
-
     // TODO: is this needed?
     public Category addProduct(final Product product) {
         this.save();
@@ -37,4 +29,10 @@ public class Category extends Model {
         return this;
     }
 
+    public static Category create(final String name) {
+        final Category category = new Category();
+        category.name = name;
+        category.save();
+        return category;
+    }
 }

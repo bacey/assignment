@@ -1,11 +1,11 @@
 #{extends 'main.html' /}
-#{set title:'Categories' /} TODO I18N
+#{set title:'Categories' /} TODO I18N title
 
-<a href="#">TODO LINK &{'Products'}</a> | &{'Categories'}
+<a href="@{ProductController.index()}">&{'Products'}</a> | &{'Categories'}
 
 <h1>&{'Categories'}</h1>
 
-<a href="#">TODO LINK &{'new.category'}</a>
+<a href="@{CategoryController.newCategory()}">&{'new.category'}</a>
 
 <table>
     <thead>
@@ -19,7 +19,7 @@
             <tr>
                 <td>${category.name}</td>
                 <td>
-                    <a href="${category.id}">TODO LINK &{'Edit'}</a> |
+                    <a href="@{CategoryController.edit(category.id)}">&{'Edit'}</a> |
                     <a href="${category.id}">TODO LINK &{'Delete'}</a>
                 </td>
             </tr>
