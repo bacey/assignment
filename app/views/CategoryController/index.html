@@ -1,7 +1,11 @@
 #{extends 'main.html' /}
 #{set title:'Categories' /} TODO I18N title
 
-<a href="@{ProductController.index()}">&{'Products'}</a> | &{'Categories'}
+<a href="@{Products.index()}">&{'Products'}</a> | &{'Categories'}
+
+#{if flash.success}
+    <p class="success">${flash.success}</p>
+#{/if}
 
 <h1>&{'Categories'}</h1>
 

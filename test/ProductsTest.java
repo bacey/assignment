@@ -8,7 +8,7 @@ import play.test.UnitTest;
 
 import java.math.BigDecimal;
 
-public class ProductControllerTest extends UnitTest {
+public class ProductsTest extends UnitTest {
 
     private static final String EXPECTED_PRODUCT_NAME = "first product";
 

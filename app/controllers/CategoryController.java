@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Category;
+import play.data.validation.Required;
 import play.mvc.Controller;
 
 import java.util.List;
@@ -20,10 +21,18 @@ public class CategoryController extends Controller {
     }
 
     // handles POST
-    public static void create(final String name) {
-        Category.create(name);
-        // TODO: redirect
-        index();
+    public static void create(final @Required String name) {
+        if (validation.hasErrors()) {
+            //TODO: this doesn't work: newCategory();
+            final Category category = new Category();
+            render("CategoryController/newCategory.html", category);
+        } else {
+            Category.create(name);
+            // TODO: I18N
+            flash.success("Successfully created the %s category.", name);
+            // TODO: redirect
+            index();
+        }
     }
 
     public static void edit(final Long id) {

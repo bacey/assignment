@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 public class Category extends Model {
 
+    // TODO: make this unique
     public String name;
 
     // TODO: is cascade needed? What are the requirements?

@@ -12,6 +12,8 @@ POST    /products                               ProductController.createProduct
 GET     /products/{<[0-9]+>id}/edit             ProductController.editProduct
 DELETE  /products/{<[0-9]+>id}                  ProductController.deleteProduct
 
+*       /admin                                  module:crud
+
 GET     /categories                             CategoryController.index
 GET     /categories/new                         CategoryController.newCategory
 POST    /categories                             CategoryController.create

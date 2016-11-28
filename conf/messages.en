@@ -7,5 +7,5 @@ Edit = Edit
 Delete = Delete
 Save = Save
 Back = Back
-
+name.required = Name is required!
 
