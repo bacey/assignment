@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'Categories' /}
+
+<a href="#">TODO LINK &{'Products'}</a> | &{'Categories'}
+
+<h1>&{'Categories'}</h1>
+
+<a href="#">TODO LINK &{'new.category'}</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>&{'Name'}</th>
+            <th>&{'Actions'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{list items:categories, as:'category'}
+            <tr>
+                <td>${category.name}</td>
+                <td>
+                    <a href="${category.id}">TODO LINK &{'Edit'}</a> |
+                    <a href="${category.id}">TODO LINK &{'Delete'}</a>
+                </td>
+            </tr>
+        #{/list}
+    </tbody>
+</table>

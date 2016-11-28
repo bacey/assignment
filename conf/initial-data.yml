@@ -1,0 +1,39 @@
+
+Category(category1):
+    name:          Category 1
+
+Category(category2):
+    name:          Category 2
+
+Category(category3):
+    name:          Category 3
+
+Product(product1):
+    name:          Product 1
+    price:         10.0
+    category:      category1
+
+Product(product2):
+    name:          Product 2
+    price:         20.0
+    category:      category2
+
+Product(product3):
+    name:          Product 3
+    price:         30.0
+    category:      category3
+
+Product(product4):
+    name:          Product 4
+    price:         10.0
+    category:      category1
+
+Product(product5):
+    name:          Product 5
+    price:         20.0
+    category:      category2
+
+Product(product6):
+    name:          Product 6
+    price:         30.0
+    category:      category3
