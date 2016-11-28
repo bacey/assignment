@@ -6,17 +6,17 @@
 #GET     /                                       Application.index
 # TODO: / should redirect to /products
 
-GET     /products                               Product.listAllProducts
-GET     /products/new                           Product.newProduct
-POST    /products                               Product.createProduct
-#GET     /products/{:id}/edit                    ProductController.editProduct
-#DELETE  /products/{:id}                         ProductController.deleteProduct
+GET     /products                               ProductController.listAllProducts
+GET     /products/new                           ProductController.newProduct
+POST    /products                               ProductController.createProduct
+GET     /products/{<[0-9]+>id}/edit             ProductController.editProduct
+DELETE  /products/{<[0-9]+>id}                  ProductController.deleteProduct
 
 GET     /categories                             CategoryController.index
-GET     /categories/new                         Category.newCategory
-POST    /categories                             Category.createCategory
-#GET     /categories/{:id}/edit                  Category.editCategory
-#DELETE  /categories/{:id}                       Category.deleteCategory
+GET     /categories/new                         CategoryController.newCategory
+POST    /categories                             CategoryController.create
+GET     /categories/{<[0-9]+>id}/edit           CategoryController.edit
+DELETE  /categories/{<[0-9]+>id}                CategoryController.delete
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

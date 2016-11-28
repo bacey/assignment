@@ -16,6 +16,10 @@ public class Category extends Model {
     @OneToMany(mappedBy="category") // , cascade=CascadeType.ALL)
     public List<Product> products = new ArrayList<>();
 
+    public Category() {
+        // for CategoryController#newCategory
+    }
+
     public Category(final String name) {
         this.name = name;
     }

@@ -15,15 +15,17 @@ public class CategoryController extends Controller {
     }
 
     public static void newCategory() {
-        render();
+        final Category category = new Category();
+        render(category);
     }
 
     public static void create() {
         render();
     }
 
-    public static void edit() {
-        render();
+    public static void edit(final Long id) {
+        final Category category = Category.findById(id);
+        render(category);
     }
 
     public static void delete() {
