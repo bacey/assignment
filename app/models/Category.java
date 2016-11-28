@@ -12,8 +12,7 @@ public class Category extends Model {
     @Column(unique = true)
     public String name;
 
-    // TODO: is cascade needed? What are the requirements?
-    @OneToMany(mappedBy = "category") // , cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     public List<Product> products = new ArrayList<>();
 
     // TODO: is this needed?

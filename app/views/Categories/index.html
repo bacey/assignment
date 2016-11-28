@@ -24,7 +24,12 @@
                 <td>${category.name}</td>
                 <td>
                     <a href="@{Categories.edit(category.id)}">&{'Edit'}</a> |
-                    <a href="${category.id}">TODO LINK &{'Delete'}</a>
+
+                    #{form @Categories.delete(category.id)}
+                        <p class="deleteCategory">
+                            <input type="submit" value="&{'Delete'}" />
+                        </p>
+                    #{/form}
                 </td>
             </tr>
         #{/paginate.list}
@@ -32,4 +37,3 @@
 </table>
 
 #{paginate.controls items:paginator /}
-

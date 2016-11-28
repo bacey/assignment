@@ -4,5 +4,5 @@
 ```bash
 $ play install paginate-head
 $ play dependencies
-
+$ play test
 

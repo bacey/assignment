@@ -8,4 +8,8 @@ Delete = Delete
 Save = Save
 Back = Back
 name.required = Name is required!
+
 category.validationErrors =  Error while creating the category: %s.
+category.successfullyCreated = Successfully created the %s category.
+category.successfullyDeleted = Successfully deleted the %s category.
+category.nameAlreadyTaken = Error while creating the category. Maybe the %s name is already taken?

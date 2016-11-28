@@ -34,15 +34,21 @@ String __lastURL = __hasNext ? _items.getCallbackURL(__maxPage) : "#";
 	boolean __active = __currentPage == __idx;
 %}
 
-		<li><a class="${__active ? 'active' : 'inactive'}" href="${_items.getCallbackURL(__idx)}">${__idx}</a></li>
+		<li>
+            <a class="${__active ? 'active' : 'inactive'}" href="${_items.getCallbackURL(__idx)}">${__idx}</a>
 
 %{
         if (__idx != __lastPage) {
 %}
             |
 %{
-        }
-	}
+        } // if
+%}
+
+        </li>
+
+%{
+    } // for
 %}
 
 	</ul>
