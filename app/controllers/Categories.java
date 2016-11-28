@@ -73,14 +73,14 @@ public class Categories extends Controller {
     }
 
     private static void renderNewCategory(final String name) {
-        //TODO: somehow a plain call to newCategory() just doesn't work.
+        // TODO: somehow a plain call to newCategory() just didn't work.
         final Category category = new Category();
         category.name = name;
 
         render("Categories/newCategory.html", category);
     }
 
-    // Post/Redirect/Get pattern. See https://en.wikipedia.org/wiki/Post/Redirect/Get
+    // Post/Redirect/Get pattern: https://en.wikipedia.org/wiki/Post/Redirect/Get
     private static void redirectToIndex() {
         redirect("Categories.index");
     }

@@ -1,14 +1,15 @@
 Categories = Categories
 Products  = Products
-new.category = New category
+new.category = New Category
+edit.category = Edit Category
 Name = Name
 Actions = Actions
 Edit = Edit
 Delete = Delete
 Save = Save
 Back = Back
-name.required = Name is required!
 
+name.required = Name is required!
 category.validationErrors =  Error while creating the category: %s.
 category.successfullyCreated = Successfully created the %s category.
 category.successfullyDeleted = Successfully deleted the %s category.
