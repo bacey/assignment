@@ -9,7 +9,7 @@
 
 <h1>&{'Categories'}</h1>
 
-<a href="@{CategoryController.newCategory()}">&{'new.category'}</a>
+<a href="@{Categories.newCategory()}">&{'new.category'}</a>
 
 <table>
     <thead>
@@ -23,7 +23,7 @@
             <tr>
                 <td>${category.name}</td>
                 <td>
-                    <a href="@{CategoryController.edit(category.id)}">&{'Edit'}</a> |
+                    <a href="@{Categories.edit(category.id)}">&{'Edit'}</a> |
                     <a href="${category.id}">TODO LINK &{'Delete'}</a>
                 </td>
             </tr>

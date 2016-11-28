@@ -2,23 +2,20 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-#GET     /                                       Application.index
 # TODO: / should redirect to /products
+GET     /                                       Products.index
 
-GET     /products                               ProductController.index
-GET     /products/new                           ProductController.newProduct
-POST    /products                               ProductController.createProduct
-GET     /products/{<[0-9]+>id}/edit             ProductController.editProduct
-DELETE  /products/{<[0-9]+>id}                  ProductController.deleteProduct
+GET     /products                               Products.index
+GET     /products/new                           Products.newProduct
+POST    /products                               Products.create
+GET     /products/{<[0-9]+>id}/edit             Products.edit
+DELETE  /products/{<[0-9]+>id}                  Products.delete
 
-*       /admin                                  module:crud
-
-GET     /categories                             CategoryController.index
-GET     /categories/new                         CategoryController.newCategory
-POST    /categories                             CategoryController.create
-GET     /categories/{<[0-9]+>id}/edit           CategoryController.edit
-DELETE  /categories/{<[0-9]+>id}                CategoryController.delete
+GET     /categories                             Categories.index
+GET     /categories/new                         Categories.newCategory
+POST    /categories                             Categories.create
+GET     /categories/{<[0-9]+>id}/edit           Categories.edit
+DELETE  /categories/{<[0-9]+>id}                Categories.delete
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

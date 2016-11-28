@@ -2,19 +2,18 @@ package models;
 
 import play.db.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Category extends Model {
 
-    // TODO: make this unique
+    @Column(unique = true)
     public String name;
 
     // TODO: is cascade needed? What are the requirements?
-    @OneToMany(mappedBy="category") // , cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "category") // , cascade=CascadeType.ALL)
     public List<Product> products = new ArrayList<>();
 
     // TODO: is this needed?
@@ -36,4 +35,20 @@ public class Category extends Model {
         category.save();
         return category;
     }
+
+    public static Category findOrCreateByName(final String name) {
+        Category category = Category.find("byName", name).first();
+
+        if (category == null) {
+            category = Category.create(name);
+        }
+
+        return category;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

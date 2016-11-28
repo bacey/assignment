@@ -2,9 +2,8 @@ package controllers;
 
 import play.mvc.Controller;
 
-public class Products extends CRUD {
+public class Products extends Controller {
 
-    /*
     public static void index() {
         render();
     }
@@ -25,6 +24,5 @@ public class Products extends CRUD {
     public static void delete() {
         render();
     }
-    */
 
 }
