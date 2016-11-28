@@ -6,6 +6,7 @@ import play.Logger;
 import play.data.validation.Error;
 import play.data.validation.Required;
 import play.i18n.Messages;
+import play.modules.paginate.ModelPaginator;
 import play.mvc.Controller;
 
 import javax.persistence.PersistenceException;
@@ -20,7 +21,10 @@ public class Categories extends Controller {
         final List<Category> categories = Category.find("order by id asc").fetch();
         // TODO: pagination
         //.from(1).fetch(10);
-        render(categories);
+        final ModelPaginator paginator = new ModelPaginator(Category.class);
+        paginator.setBoundaryControlsEnabled(false);
+        render(paginator);
+        //render(categories);
     }
 
     public static void newCategory() {

@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        #{list items:categories, as:'category'}
+        #{paginate.list items:paginator, as:'category'}
             <tr>
                 <td>${category.name}</td>
                 <td>
@@ -27,6 +27,9 @@
                     <a href="${category.id}">TODO LINK &{'Delete'}</a>
                 </td>
             </tr>
-        #{/list}
+        #{/paginate.list}
     </tbody>
 </table>
+
+#{paginate.controls items:paginator /}
+
