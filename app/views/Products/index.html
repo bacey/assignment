@@ -1,0 +1,43 @@
+#{extends 'main.html' /}
+#{set title:messages.get('Products') /}
+
+&{'Products'} | <a href="@{Categories.index()}">&{'Categories'}</a>
+
+#{if flash.success}
+    <p class="success">${flash.success}</p>
+#{/if}
+
+<h1>&{'Products'}</h1>
+
+<a href="@{Products.newProduct()}">&{'new.product'}</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>&{'Name'}</th>
+            <th>&{'Price'}</th>
+            <th>&{'Category'}</th>
+            <th>&{'Actions'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{paginate.list items:paginator, as:'product'}
+            <tr>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.category}</td>
+                <td>
+                    <a href="@{Products.edit(product.id)}">&{'Edit'}</a> |
+
+                    #{form @Products.delete(product.id)}
+                        <p class="deleteProduct">
+                            <input type="submit" value="&{'Delete'}" />
+                        </p>
+                    #{/form}
+                </td>
+            </tr>
+        #{/paginate.list}
+    </tbody>
+</table>
+
+#{paginate.controls items:paginator /}

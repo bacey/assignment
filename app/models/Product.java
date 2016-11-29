@@ -18,6 +18,10 @@ public class Product extends Model {
     @ManyToOne
     public Category category;
 
+    public Product() {
+        this(null, null);
+    }
+
     public Product(final String name, final BigDecimal price) {
         this(name, price, null);
     }
@@ -28,8 +32,10 @@ public class Product extends Model {
         this.category = category;
     }
 
-    public static Product connect(final String name) {
-        return find("byName", name).first();
+    public static Product create(final String name, final BigDecimal price, final Category category) {
+        final Product product = new Product(name, price, category);
+        product.save();
+        return product;
     }
 
     @Override

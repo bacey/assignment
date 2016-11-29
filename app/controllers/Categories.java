@@ -1,18 +1,14 @@
 package controllers;
 
 import models.Category;
-import org.apache.commons.lang.StringUtils;
 import play.Logger;
-import play.data.validation.Error;
 import play.data.validation.Required;
 import play.i18n.Messages;
 import play.mvc.Controller;
+import utils.Helpers;
 import utils.ConfiguredPaginator;
 
 import javax.persistence.PersistenceException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class Categories extends Controller {
 
@@ -30,19 +26,19 @@ public class Categories extends Controller {
     // TODO: I18N the @Required message
     public static void create(final @Required(message = "name is required") String name) {
         if (validation.hasErrors()) {
-            final String errors = collectErrors(validation.errorsMap());
-            final String errorMessage = Messages.get("category.validationErrors", errors);
+            final String errors = Helpers.concatenateErrors(validation.errorsMap());
+            final String errorMessage = Messages.get("validationErrors", "category", errors);
             flash.error(errorMessage);
             renderNewCategory(name);
         } else {
             try {
                 Category.create(name);
 
-                flash.success(Messages.get("category.successfullyCreated", name));
+                flash.success(Messages.get("successfullyCreated", name, "category"));
                 redirectToIndex();
             } catch (PersistenceException e) {
                 Logger.error("Exception while creating the category with the name: \"%s\". %s", name, e);
-                flash.error(Messages.get("category.nameAlreadyTaken", name));
+                flash.error(Messages.get("nameAlreadyTaken", "category", name));
                 renderNewCategory(name);
             }
         }
@@ -59,17 +55,8 @@ public class Categories extends Controller {
 
         category.delete();
 
-        flash.success(Messages.get("category.successfullyDeleted", name));
+        flash.success(Messages.get("successfullyDeleted", name, "category"));
         redirectToIndex();
-    }
-
-    private static String collectErrors(final Map<String, List<Error>> errorsMap) {
-        final List<Error> allErrors = new ArrayList<>();
-        for (List<Error> errors : errorsMap.values()) {
-            allErrors.addAll(errors);
-        }
-
-        return StringUtils.join(allErrors, ", ");
     }
 
     private static void renderNewCategory(final String name) {

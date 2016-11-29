@@ -1,0 +1,23 @@
+
+<h1>${_title}</h1>
+
+#{form @Products.create()}
+
+    #{if flash.error}
+        <p class="error">${flash.error}</p>
+    #{/if}
+
+    <label for="name">&{'Name'}</label>
+    <input type="text" id="name" name="name" value="${_product.name}" />
+
+    <label for="price">&{'Price'}</label>
+    <input type="text" id="price" name="price" value="${_product.price}" />
+
+    <label for="category">&{'Category'}</label>
+    #{select 'categoryId', items:_caller.categories, value: _product.category ? _product.category.id : 0, id:'category', name:'category' /}
+
+    <input type="submit" value="&{'Save'}" />
+
+#{/form}
+
+<a href="@{Products.index()}">&{'Back'}</a>
