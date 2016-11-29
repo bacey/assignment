@@ -1,6 +1,14 @@
 
+# How to run the application
 
-### First install the library used for pagination
+### First clone the repository
+
+```bash
+$ git clone https://github.com/bacey/assignment.git
+$ cd assignment
+```
+
+### Then install the library used for pagination
 
 ```bash
 $ play install paginate-head
