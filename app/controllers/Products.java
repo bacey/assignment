@@ -27,8 +27,8 @@ public class Products extends Controller {
         render(product, categories);
     }
 
-    // handles POST
     // TODO: I18N the @Required message
+    // TODO: should differentiate b/w create and update
     public static void create(final @Required(message = "name is required") String name,
                               final @Required(message = "price is required") BigDecimal price,
                               final @Required(message = "category is required") Long categoryId) {
@@ -43,7 +43,7 @@ public class Products extends Controller {
                 Product.create(name, price, category);
 
                 flash.success(Messages.get("successfullyCreated", name, "product"));
-                redirectToIndex();
+                redirectToIndexWhileShowingFlash();
             } catch (PersistenceException e) {
                 Logger.error("Exception while creating the product with the name: \"%s\". %s", name, e);
                 flash.error(Messages.get("nameAlreadyTaken", "product", name));
@@ -82,8 +82,14 @@ public class Products extends Controller {
     }
 
     public static void redirectToIndex() {
+        redirectToIndexWhileShowingFlash();
+    }
+
+    // If this is not private, then the flash gets lost during redirect.
+    private static void redirectToIndexWhileShowingFlash() {
         redirect("Products.index");
     }
+
 
     private static List<Category> getAllCategories() {
         return Category.all().fetch();

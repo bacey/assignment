@@ -1,30 +1,67 @@
-*{ You can use plain selenium command using the selenium tag }*
 
 #{selenium}
     // Open the home page, and check that no error occured
     open('/')
     assertNotTitle('Application error')
 
-    // Check that it is the Hello World application
-    assertTextPresent('The Hello world app.')
+    assertTextPresent('Products')
 
-    // Submit the form
+    clickAndWait('link=Categories')
+    assertTextPresent('Categories')
+
+    clickAndWait('link=New Category')
+    assertTextPresent('New Category')
+
+    type('css=input#name', 'Computers')
     clickAndWait('css=input[type=submit]')
+    assertTextPresent('Successfully created the Computers category.')
 
-    // Check the error
-    assertTextPresent('Oops, please enter your name!')
+    clickAndWait('link=Products')
+    assertTextPresent('Products')
 
-    // Type the name and submit
-    type('css=input[type=text]', 'bob')
+    clickAndWait('link=New Product')
+    assertTextPresent('New Product')
+
     clickAndWait('css=input[type=submit]')
+    assertTextPresent('Error while creating the product: name is required, price is required.')
 
-    // Check the result
-    assertTextPresent('Hello bob!')
-    assertTextPresent('The Hello world app.')
+    type('css=input#name', 'Laptop')
+    clickAndWait('css=input[type=submit]')
+    assertTextPresent('Error while creating the product: price is required.')
 
-    // Check the back link
-    clickAndWait('link=Back to form')
+    type('css=input#price', 'NaN')
+    clickAndWait('css=input[type=submit]')
+    assertTextPresent('Error while creating the product: Incorrect value, price is required.')
 
-    // Home page?
-    assertTextNotPresent('Hello bob!')
+    type('css=input#price', '111')
+    clickAndWait('css=input[type=submit]')
+    assertTextPresent('Successfully created the Laptop product.')
+
+
+    // Test that product name is unique
+    clickAndWait('link=New Product')
+    assertTextPresent('New Product')
+
+    type('css=input#name', 'Laptop')
+    type('css=input#price', '111')
+    clickAndWait('css=input[type=submit]')
+    assertTextPresent('Error while creating the product. Maybe the Laptop name is already taken?')
+
+    type('css=input#name', 'Notebook')
+    clickAndWait('css=input[type=submit]')
+    assertTextPresent('Successfully created the Notebook product.')
+
+
+    // Test the edit functionality.
+    clickAndWait('css=a[href=/products/1/edit]')
+    assertTextPresent('Edit Product')
+
+    type('css=input#name', 'Laptop')
+    clickAndWait('css=input[type=submit]')
+    assertTextPresent('Error while creating the product. Maybe the Laptop name is already taken?')
+
+    type('css=input#name', 'Tablet')
+    clickAndWait('css=input[type=submit]')
+    assertTextPresent('Successfully created the Tablet product.')
+
 #{/selenium}

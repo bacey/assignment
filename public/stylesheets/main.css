@@ -15,3 +15,7 @@ form {
 .form-control {
     width: 40%;
 }
+
+.alert {
+    margin-top: 20px;
+}
