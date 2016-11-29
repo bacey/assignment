@@ -36,7 +36,7 @@ public class Bootstrap extends Job {
     }
 
     private void createDummyProducts() {
-        for (int i=1; i <= NUMBER_OF_PRODUCTS; i++) {
+        for (int i = 1; i <= NUMBER_OF_PRODUCTS; i++) {
             final int categoryNumber = Math.max(i % (NUMBER_OF_CATEGORIES + 1), 1); // [1-45]
             final Category category = Category.findOrCreateByName("Category " + categoryNumber);
 
