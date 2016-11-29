@@ -4,14 +4,14 @@
 <a href="@{Products.index()}">&{'Products'}</a> | &{'Categories'}
 
 #{if flash.success}
-    <p class="success">${flash.success}</p>
+    <div class="alert alert-success">${flash.success}</div>
 #{/if}
 
-<h1>&{'Categories'}</h1>
+<h3>&{'Categories'}</h3>
 
 <a href="@{Categories.newCategory()}">&{'new.category'}</a>
 
-<table>
+<table class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>&{'Name'}</th>
@@ -26,9 +26,7 @@
                     <a href="@{Categories.edit(category.id)}">&{'Edit'}</a> |
 
                     #{form @Categories.delete(category.id)}
-                        <p class="deleteCategory">
-                            <input type="submit" value="&{'Delete'}" />
-                        </p>
+                        <input type="submit" value="&{'Delete'}" class="btn btn-link delete-button delete-category-button" />
                     #{/form}
                 </td>
             </tr>

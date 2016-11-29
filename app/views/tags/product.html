@@ -1,10 +1,10 @@
 
-<h1>${_title}</h1>
+<h3>${_title}</h3>
 
 #{form @Products.create()}
 
     #{if flash.error}
-        <p class="error">${flash.error}</p>
+        <div class="alert alert-danger">${flash.error}</div>
     #{/if}
 
     <label for="name">&{'Name'}</label>

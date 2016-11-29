@@ -9,13 +9,14 @@ import java.math.BigDecimal;
 @OnApplicationStart
 public class Bootstrap extends Job {
 
-    private static final int NUMBER_OF_PRODUCTS = 150;
-    private static final int NUMBER_OF_CATEGORIES = 45;
+    private static final int NUMBER_OF_PRODUCTS = 20;
+    private static final int NUMBER_OF_CATEGORIES = 3;
 
     @Override
     public void doJob() {
-        // Load initial data into the DB if the DB is empty
-        if (Category.count() == 0) {
+        final boolean dbIsEmpty = Category.count() == 0;
+
+        if (dbIsEmpty) {
             Logger.debug("Loading initial data into the DB...");
 
             createDummyCategories();

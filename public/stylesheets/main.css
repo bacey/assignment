@@ -1,0 +1,13 @@
+.btn-link {
+    display: inline;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+form {
+    display: inline;
+}
+
+.pagination-container {
+    text-align: center;
+}
