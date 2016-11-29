@@ -36,15 +36,6 @@ String __lastURL = __hasNext ? _items.getCallbackURL(__maxPage) : "#";
 
 		<li>
             <a class="${__active ? 'active' : 'inactive'}" href="${_items.getCallbackURL(__idx)}">${__idx}</a>
-
-%{
-        if (__idx != __lastPage) {
-%}
-            |
-%{
-        } // if
-%}
-
         </li>
 
 %{

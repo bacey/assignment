@@ -7,14 +7,20 @@
         <div class="alert alert-danger">${flash.error}</div>
     #{/if}
 
-    <label for="name">&{'Name'}</label>
-    <input type="text" id="name" name="name" value="${_product.name}" />
+    <div class="form-group">
+        <label for="name">&{'Name'}</label>
+        <input type="text" id="name" name="name" value="${_product.name}" class="form-control" />
+    </div>
 
-    <label for="price">&{'Price'}</label>
-    <input type="text" id="price" name="price" value="${_product.price}" />
+    <div class="form-group">
+        <label for="price">&{'Price'}</label>
+        <input type="text" id="price" name="price" value="${_product.price}" class="form-control" />
+    </div>
 
-    <label for="category">&{'Category'}</label>
-    #{select 'categoryId', items:_caller.categories, value: _product.category ? _product.category.id : 0, id:'category', name:'category' /}
+    <div class="form-group">
+        <label for="category">&{'Category'}</label>
+        #{select 'categoryId', items:_caller.categories, value: _product.category ? _product.category.id : 0, id:'category', name:'category', class:'form-control' /}
+    </div>
 
     <input type="submit" value="&{'Save'}" />
 

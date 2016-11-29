@@ -81,7 +81,7 @@ public class Products extends Controller {
         render("Products/newProduct.html", product, categories);
     }
 
-    private static void redirectToIndex() {
+    public static void redirectToIndex() {
         redirect("Products.index");
     }
 

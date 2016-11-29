@@ -2,8 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# TODO: / should redirect to /products
-GET     /                                       Products.index
+GET     /                                       Products.redirectToIndex
 
 GET     /products                               Products.index
 GET     /products/new                           Products.newProduct
@@ -23,6 +22,6 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
+# TODO: create a catch-all route which redirects everything to 404
 # Catch all
-# TODO: delete this
-#*       /{controller}/{action}                  {controller}.{action}
+*       /{controller}/{action}                  {controller}.{action}
